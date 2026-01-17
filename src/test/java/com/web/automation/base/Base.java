@@ -11,8 +11,8 @@ public class Base {
 	
 	@BeforeMethod
 	public void OpenBrowser() {
-		browser = new BrowserFactory();
-		driver = browser.getBrowser(browserType);
+		browser = BrowserFactory.getBrowser(browserType); //giving browser object
+		driver = browser.getDriver(); //giving the browser driver
 		driver.get("https://tutorialsninja.com/demo/index.php?route=common/home");
 	}
 

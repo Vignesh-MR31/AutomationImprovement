@@ -1,27 +1,16 @@
 package com.web.automation.base;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-public class BrowserFactory implements Browser{
-	public WebDriver driver;
-
-	@Override
-	public WebDriver getBrowser(String browserType) {
-		switch(browserType) {
+public class BrowserFactory{	
+	
+	public static Browser getBrowser(String BrowserType) {
+		switch(BrowserType) {
 		case "chrome":
-			driver = new ChromeDriver();
-			break;
+			return new ChromeBrowser();
 		case "edge":
-			driver = new EdgeDriver();
-			break;
+			return new EdgeBrowser();
 		default:
-			driver = new ChromeDriver();
-			break;
+			return new ChromeBrowser();
 		}
-		return driver;
 	}
-
+	
 }
